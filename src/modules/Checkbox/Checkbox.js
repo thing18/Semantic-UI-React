@@ -50,7 +50,7 @@ export default class Checkbox extends Component {
   }
 
   handleClick = (e) => {
-    debug('handleClick()', _.get(e, 'target.tagName'))
+    debug('handleClick()', e.target?.tagName)
     const { id } = this.props
     const { checked, indeterminate } = this.state
 
@@ -94,7 +94,7 @@ export default class Checkbox extends Component {
     const { checked } = this.state
 
     if (!this.canToggle()) return
-    debug('handleChange()', _.get(e, 'target.tagName'))
+    debug('handleChange()', e.target?.tagName)
 
     _.invoke(this.props, 'onChange', e, {
       ...this.props,

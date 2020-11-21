@@ -120,7 +120,7 @@ export default class Transition extends Component {
     const { animation, directional, children } = this.props
     const { animating, status } = this.state
 
-    const childClasses = _.get(children, 'props.className')
+    const childClasses = children?.props.className
     const isDirectional = (directional == null)
       ? _.includes(SUI.DIRECTIONAL_TRANSITIONS, animation)
       : directional
@@ -145,7 +145,7 @@ export default class Transition extends Component {
     const { children, duration } = this.props
     const { status } = this.state
 
-    const childStyle = _.get(children, 'props.style')
+    const childStyle = children?.props.style
     const type = TRANSITION_STYLE_TYPE[status]
     const animationDuration = type && `${normalizeTransitionDuration(duration, type)}ms`
 

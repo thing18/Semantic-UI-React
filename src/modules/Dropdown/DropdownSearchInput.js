@@ -10,7 +10,7 @@ import { createShorthandFactory, getUnhandledProps } from '../../lib'
  */
 class DropdownSearchInput extends Component {
   handleChange = (e) => {
-    const value = _.get(e, 'target.value')
+    const value = e.target?.value
 
     _.invoke(this.props, 'onChange', e, { ...this.props, value })
   }

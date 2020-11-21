@@ -284,7 +284,7 @@ export default class Search extends Component {
 
   getSelectedResult = (index = this.state.selectedIndex) => {
     const results = this.getFlattenedResults()
-    return _.get(results, index)
+    return results?.[index]
   }
 
   // ----------------------------------------

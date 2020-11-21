@@ -32,7 +32,7 @@ class Tab extends Component {
     const { panes, renderActiveOnly } = this.props
     const { activeIndex } = this.state
 
-    if (renderActiveOnly) return _.invoke(_.get(panes, `[${activeIndex}]`), 'render', this.props)
+    if (renderActiveOnly) return _.invoke(panes?.[activeIndex], 'render', this.props)
     return _.map(panes, ({ pane }, index) =>
       TabPane.create(pane, {
         overrideProps: {

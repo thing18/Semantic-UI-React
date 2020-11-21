@@ -15,13 +15,13 @@ class TextArea extends Component {
   focus = () => this.ref.current.focus()
 
   handleChange = (e) => {
-    const value = _.get(e, 'target.value')
+    const value = e.target?.value
 
     _.invoke(this.props, 'onChange', e, { ...this.props, value })
   }
 
   handleInput = (e) => {
-    const value = _.get(e, 'target.value')
+    const value = e.target?.value
 
     _.invoke(this.props, 'onInput', e, { ...this.props, value })
   }

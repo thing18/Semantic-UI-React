@@ -274,7 +274,7 @@ export default class Dropdown extends Component {
     const { multiple } = this.props
 
     const item = this.getSelectedItem(selectedIndex)
-    const selectedValue = _.get(item, 'value')
+    const selectedValue = item?.value
 
     // prevent selecting null if there was no selected item value
     // prevent selecting duplicate items when the dropdown is closed
@@ -515,8 +515,8 @@ export default class Dropdown extends Component {
 
     // Heads up! Don't remove this.
     // https://github.com/Semantic-Org/Semantic-UI-React/issues/1315
-    const currentTarget = _.get(e, 'currentTarget')
-    if (currentTarget && currentTarget.contains(document.activeElement)) return
+    const currentTarget = e?.currentTarget
+    if (currentTarget?.contains(document.activeElement)) return
 
     const { closeOnBlur, multiple, selectOnBlur } = this.props
     // do not "blur" when the mouse is down inside of the Dropdown
@@ -583,7 +583,7 @@ export default class Dropdown extends Component {
       search: this.props.search,
     })
 
-    return _.get(options, `[${selectedIndex}]`)
+    return options?.[selectedIndex]
   }
 
   getItemByValue = (value) => {

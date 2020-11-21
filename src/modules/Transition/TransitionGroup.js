@@ -54,7 +54,7 @@ export default class TransitionGroup extends React.Component {
       const hasNext = _.has(nextMapping, key)
 
       const { [key]: prevChild } = prevMapping
-      const isLeaving = !_.get(prevChild, 'props.visible')
+      const isLeaving = prevChild?.props.visible
 
       // Heads up!
       // An item is new (entering), it will be picked from `nextChildren`, so it should be wrapped
