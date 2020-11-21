@@ -1,7 +1,7 @@
-import cx from 'clsx'
-import _ from 'lodash'
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import cx from 'clsx';
+import _ from 'lodash';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 import {
   childrenUtils,
@@ -12,62 +12,62 @@ import {
   SUI,
   useKeyOnly,
   useValueAndKey,
-} from '../../lib'
+} from '../../lib';
 
 /**
  * A progress bar shows the progression of a task.
  */
 class Progress extends Component {
   calculatePercent = () => {
-    const { percent, total, value } = this.props
+    const { percent, total, value } = this.props;
 
-    if (!_.isUndefined(percent)) return percent
-    if (!_.isUndefined(total) && !_.isUndefined(value)) return (value / total) * 100
-  }
+    if (!_.isUndefined(percent)) return percent;
+    if (!_.isUndefined(total) && !_.isUndefined(value)) return (value / total) * 100;
+  };
 
   computeValueText = (percent) => {
-    const { progress, total, value } = this.props
+    const { progress, total, value } = this.props;
 
-    if (progress === 'value') return value
-    if (progress === 'ratio') return `${value}/${total}`
-    return `${percent}%`
-  }
+    if (progress === 'value') return value;
+    if (progress === 'ratio') return `${value}/${total}`;
+    return `${percent}%`;
+  };
 
   getPercent = () => {
-    const { precision, progress, total, value } = this.props
-    const percent = _.clamp(this.calculatePercent(), 0, 100)
+    const { precision, progress, total, value } = this.props;
+    const percent = Math.min(100, Math.max(0, this.calculatePercent()));
 
     if (!_.isUndefined(total) && !_.isUndefined(value) && progress === 'value') {
-      return (value / total) * 100
+      return (value / total) * 100;
     }
-    if (progress === 'value') return value
-    if (_.isUndefined(precision)) return percent
-    return _.round(percent, precision)
-  }
+    if (progress === 'value') return value;
+    if (_.isUndefined(precision)) return percent;
+    return _.round(percent, precision);
+  };
 
   isAutoSuccess = () => {
-    const { autoSuccess, percent, total, value } = this.props
+    const { autoSuccess, percent, total, value } = this.props;
 
-    return autoSuccess && (percent >= 100 || value >= total)
-  }
+    return autoSuccess && (percent >= 100 || value >= total);
+  };
 
   renderLabel = () => {
-    const { children, content, label } = this.props
+    const { children, content, label } = this.props;
 
-    if (!childrenUtils.isNil(children)) return <div className='label'>{children}</div>
-    if (!childrenUtils.isNil(content)) return <div className='label'>{content}</div>
+    if (!childrenUtils.isNil(children)) return <div className='label'>{children}</div>;
+    if (!childrenUtils.isNil(content)) return <div className='label'>{content}</div>;
     return createHTMLDivision(label, {
       autoGenerateKey: false,
       defaultProps: { className: 'label' },
-    })
-  }
+    });
+  };
 
   renderProgress = (percent) => {
-    const { precision, progress } = this.props
+    const { precision, progress } = this.props;
 
-    if (!progress && _.isUndefined(precision)) return
-    return <div className='progress'>{this.computeValueText(percent)}</div>
-  }
+    if (!progress && _.isUndefined(precision)) return;
+    return <div className='progress'>{this.computeValueText(percent)}</div>;
+  };
 
   render() {
     const {
@@ -82,7 +82,7 @@ class Progress extends Component {
       size,
       success,
       warning,
-    } = this.props
+    } = this.props;
 
     const classes = cx(
       'ui',
@@ -98,10 +98,10 @@ class Progress extends Component {
       useValueAndKey(attached, 'attached'),
       'progress',
       className,
-    )
-    const rest = getUnhandledProps(Progress, this.props)
-    const ElementType = getElementType(Progress, this.props)
-    const percent = this.getPercent() || 0
+    );
+    const rest = getUnhandledProps(Progress, this.props);
+    const ElementType = getElementType(Progress, this.props);
+    const percent = this.getPercent() || 0;
 
     return (
       <ElementType {...rest} className={classes} data-percent={Math.floor(percent)}>
@@ -110,7 +110,7 @@ class Progress extends Component {
         </div>
         {this.renderLabel()}
       </ElementType>
-    )
+    );
   }
 }
 
@@ -187,6 +187,6 @@ Progress.propTypes = {
 
   /** A progress bar can show a warning state. */
   warning: PropTypes.bool,
-}
+};
 
-export default Progress
+export default Progress;
