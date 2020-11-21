@@ -128,9 +128,7 @@ export default class ModernAutoControlledComponent extends React.Component {
       //
       // Default props are automatically handled.
       // Listing defaults in autoControlledProps would result in allowing defaultDefaultValue props.
-      const illegalAutoControlled = _.filter(autoControlledProps, (prop) =>
-        _.startsWith(prop, 'default'),
-      )
+      const illegalAutoControlled = _.filter(autoControlledProps, (prop) => prop.startsWith('default'))
       if (!_.isEmpty(illegalAutoControlled)) {
         console.error(
           [
