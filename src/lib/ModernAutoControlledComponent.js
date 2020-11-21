@@ -112,7 +112,7 @@ export default class ModernAutoControlledComponent extends React.Component {
       // To set defaults for an AutoControlled prop, you can set the initial state in the
       // constructor or by using an ES7 property initializer:
       // https://babeljs.io/blog/2015/06/07/react-on-es6-plus#property-initializers
-      const illegalDefaults = _.intersection(autoControlledProps, _.keys(defaultProps))
+      const illegalDefaults = _.keys(defaultProps)?.filter(x => autoControlledProps.includes(x))
       if (!_.isEmpty(illegalDefaults)) {
         console.error(
           [
