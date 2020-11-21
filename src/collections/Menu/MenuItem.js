@@ -70,7 +70,7 @@ export default class MenuItem extends Component {
     return (
       <ElementType {...rest} className={classes} onClick={this.handleClick}>
         {Icon.create(icon, { autoGenerateKey: false })}
-        {childrenUtils.isNil(content) ? _.startCase(name) : content}
+        {childrenUtils.isNil(content) ? (name ? name.charAt(0).toUpperCase() + name.slice(1) : '') : content}
       </ElementType>
     )
   }
