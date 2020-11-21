@@ -32,7 +32,7 @@ export default class TransitionablePortal extends Component {
       return { portalOpen: false }
     }
 
-    if (_.isUndefined(props.open)) {
+    if ((props.open == null)) {
       return null
     }
 

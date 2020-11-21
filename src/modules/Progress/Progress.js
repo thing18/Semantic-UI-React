@@ -21,8 +21,8 @@ class Progress extends Component {
   calculatePercent = () => {
     const { percent, total, value } = this.props;
 
-    if (!_.isUndefined(percent)) return percent;
-    if (!_.isUndefined(total) && !_.isUndefined(value)) return (value / total) * 100;
+    if (percent != null) return percent;
+    if ((total != null) && (value != null)) return (value / total) * 100;
   };
 
   computeValueText = (percent) => {
@@ -37,11 +37,11 @@ class Progress extends Component {
     const { precision, progress, total, value } = this.props;
     const percent = Math.min(100, Math.max(0, this.calculatePercent()));
 
-    if (!_.isUndefined(total) && !_.isUndefined(value) && progress === 'value') {
+    if ((total != null) && (value != null) && progress === 'value') {
       return (value / total) * 100;
     }
     if (progress === 'value') return value;
-    if (_.isUndefined(precision)) return percent;
+    if ((precision == null)) return percent;
     return _.round(percent, precision);
   };
 
@@ -65,7 +65,7 @@ class Progress extends Component {
   renderProgress = (percent) => {
     const { precision, progress } = this.props;
 
-    if (!progress && _.isUndefined(precision)) return;
+    if (!progress && (precision == null)) return;
     return <div className='progress'>{this.computeValueText(percent)}</div>;
   };
 

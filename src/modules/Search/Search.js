@@ -30,7 +30,7 @@ const debug = makeDebugger('search')
 const overrideSearchInputProps = (predefinedProps) => {
   const { input } = predefinedProps
 
-  if (_.isUndefined(input)) {
+  if ((input == null)) {
     return { ...predefinedProps, input: { className: 'prompt' } }
   }
   if (_.isPlainObject(input)) {

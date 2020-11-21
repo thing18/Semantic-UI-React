@@ -134,12 +134,12 @@ export default class Dropdown extends Component {
       if (hasValue && this.props.multiple && !isNextValueArray) {
         console.error(
           'Dropdown `value` must be an array when `multiple` is set.' +
-            ` Received type: \`${Object.prototype.toString.call(this.props.value)}\`.`,
+          ` Received type: \`${Object.prototype.toString.call(this.props.value)}\`.`,
         )
       } else if (hasValue && !this.props.multiple && isNextValueArray) {
         console.error(
           'Dropdown `value` must not be an array when `multiple` is not set.' +
-            ' Either set `multiple={true}` or use a string or number value.',
+          ' Either set `multiple={true}` or use a string or number value.',
         )
       }
     }
@@ -190,7 +190,7 @@ export default class Dropdown extends Component {
 
   closeOnChange = (e) => {
     const { closeOnChange, multiple } = this.props
-    const shouldClose = _.isUndefined(closeOnChange) ? !multiple : closeOnChange
+    const shouldClose = (closeOnChange == null) ? !multiple : closeOnChange
 
     if (shouldClose) {
       this.close(e, _.noop)

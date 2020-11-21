@@ -153,7 +153,7 @@ export default class ModernAutoControlledComponent extends React.Component {
         const defaultPropName = getDefaultPropName(prop)
         const { name } = this.constructor
         // prevent defaultFoo={} along side foo={}
-        if (!_.isUndefined(this.props[defaultPropName]) && !_.isUndefined(this.props[prop])) {
+        if ((this.props[defaultPropName] != null) && (this.props[prop] != null)) {
           console.error(
             `${name} prop "${prop}" is auto controlled. Specify either ${defaultPropName} or ${prop}, but not both.`,
           )
@@ -176,7 +176,7 @@ export default class ModernAutoControlledComponent extends React.Component {
 
     // Solve the next state for autoControlledProps
     const newStateFromProps = autoControlledProps.reduce((acc, prop) => {
-      const isNextDefined = !_.isUndefined(props[prop])
+      const isNextDefined = (props[prop] != null)
 
       // if next is defined then use its value
       if (isNextDefined) acc[prop] = props[prop]

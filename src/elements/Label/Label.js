@@ -98,7 +98,7 @@ export default class Label extends Component {
       )
     }
 
-    const removeIconShorthand = _.isUndefined(removeIcon) ? 'delete' : removeIcon
+    const removeIconShorthand = (removeIcon == null) ? 'delete' : removeIcon
 
     return (
       <ElementType className={classes} onClick={this.handleClick} {...rest}>

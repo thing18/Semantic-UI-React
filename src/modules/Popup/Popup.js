@@ -186,8 +186,8 @@ export default class Popup extends Component {
             {PopupContent.create(content, { autoGenerateKey: false })}
           </>
         ) : (
-          children
-        )}
+            children
+          )}
         {hideOnScroll && <EventStack on={this.hideOnScroll} name='scroll' target='window' />}
       </ElementType>
     )
@@ -252,7 +252,7 @@ export default class Popup extends Component {
           // if zIndex defined in <Popup popper={{ style: {} }} /> there is no sense to override it
           const definedZIndex = popper?.style?.zIndex
 
-          if (_.isUndefined(definedZIndex)) {
+          if ((definedZIndex == null)) {
             // eslint-disable-next-line no-param-reassign
             state.elements.popper.style.zIndex = window.getComputedStyle(
               state.elements.popper.firstChild,
