@@ -8,7 +8,7 @@ import { Children, isValidElement } from 'react'
  * @return {object} Mapping of key to child
  */
 export const getChildMapping = (children) =>
-  _.keyBy(_.filter(Children.toArray(children), isValidElement), 'key')
+  _.filter(Children.toArray(children), isValidElement)?.reduce((acc, val) => { acc[val.key] = val; return acc }, {})
 
 const getPendingKeys = (prev, next) => {
   const nextKeysPending = {}
