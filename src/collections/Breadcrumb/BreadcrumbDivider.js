@@ -22,14 +22,14 @@ function BreadcrumbDivider(props) {
   const rest = getUnhandledProps(BreadcrumbDivider, props)
   const ElementType = getElementType(BreadcrumbDivider, props)
 
-  if (!_.isNil(icon)) {
+  if ((icon != null)) {
     return Icon.create(icon, {
       defaultProps: { ...rest, className: classes },
       autoGenerateKey: false,
     })
   }
 
-  if (!_.isNil(content)) {
+  if ((content != null)) {
     return (
       <ElementType {...rest} className={classes}>
         {content}

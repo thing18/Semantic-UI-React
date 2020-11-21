@@ -32,14 +32,14 @@ class Input extends Component {
   computeIcon = () => {
     const { loading, icon } = this.props
 
-    if (!_.isNil(icon)) return icon
+    if ((icon != null)) return icon
     if (loading) return 'spinner'
   }
 
   computeTabIndex = () => {
     const { disabled, tabIndex } = this.props
 
-    if (!_.isNil(tabIndex)) return tabIndex
+    if ((tabIndex != null)) return tabIndex
     if (disabled) return -1
   }
 

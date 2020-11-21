@@ -121,7 +121,7 @@ export default class Transition extends Component {
     const { animating, status } = this.state
 
     const childClasses = _.get(children, 'props.className')
-    const isDirectional = _.isNil(directional)
+    const isDirectional = (directional == null)
       ? _.includes(SUI.DIRECTIONAL_TRANSITIONS, animation)
       : directional
 

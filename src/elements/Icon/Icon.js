@@ -24,13 +24,13 @@ class Icon extends PureComponent {
     const ariaOptions = {}
     const { 'aria-label': ariaLabel, 'aria-hidden': ariaHidden } = this.props
 
-    if (_.isNil(ariaLabel)) {
+    if ((ariaLabel == null)) {
       ariaOptions['aria-hidden'] = 'true'
     } else {
       ariaOptions['aria-label'] = ariaLabel
     }
 
-    if (!_.isNil(ariaHidden)) {
+    if ((ariaHidden != null)) {
       ariaOptions['aria-hidden'] = ariaHidden
     }
 

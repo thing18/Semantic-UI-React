@@ -72,9 +72,9 @@ function Image(props) {
   const [imgTagProps, rootProps] = partitionHTMLProps(rest, { htmlProps: htmlImageProps })
   const ElementType = getElementType(Image, props, () => {
     if (
-      !_.isNil(dimmer) ||
-      !_.isNil(label) ||
-      !_.isNil(wrapped) ||
+      (dimmer != null) ||
+      (label != null) ||
+      (wrapped != null) ||
       !childrenUtils.isNil(children)
     ) {
       return 'div'

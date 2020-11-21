@@ -26,7 +26,7 @@ export function createShorthand(Component, mapValueToProps, val, options = {}) {
   }
 
   // short circuit noop values
-  if (_.isNil(val) || _.isBoolean(val)) {
+  if ((val == null) || _.isBoolean(val)) {
     return null
   }
 
@@ -94,11 +94,11 @@ export function createShorthand(Component, mapValueToProps, val, options = {}) {
   // ----------------------------------------
 
   // Use key, childKey, or generate key
-  if (_.isNil(props.key)) {
+  if ((props.key == null)) {
     const { childKey } = props
     const { autoGenerateKey = true } = options
 
-    if (!_.isNil(childKey)) {
+    if ((childKey != null)) {
       // apply and consume the childKey
       props.key = typeof childKey === 'function' ? childKey(props) : childKey
       delete props.childKey

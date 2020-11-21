@@ -69,7 +69,7 @@ function ButtonGroup(props) {
   const rest = getUnhandledProps(ButtonGroup, props)
   const ElementType = getElementType(ButtonGroup, props)
 
-  if (_.isNil(buttons)) {
+  if ((buttons == null)) {
     return (
       <ElementType {...rest} className={classes}>
         {childrenUtils.isNil(children) ? content : children}

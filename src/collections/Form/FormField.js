@@ -75,8 +75,8 @@ function FormField(props) {
   // No Control
   // ----------------------------------------
 
-  if (_.isNil(control)) {
-    if (_.isNil(label)) {
+  if ((control == null)) {
+    if ((label == null)) {
       return (
         <ElementType {...rest} className={classes} id={id}>
           {childrenUtils.isNil(children) ? content : children}

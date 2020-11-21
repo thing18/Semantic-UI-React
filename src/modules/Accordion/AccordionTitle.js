@@ -25,7 +25,7 @@ export default class AccordionTitle extends Component {
     const classes = cx(useKeyOnly(active, 'active'), 'title', className)
     const rest = getUnhandledProps(AccordionTitle, this.props)
     const ElementType = getElementType(AccordionTitle, this.props)
-    const iconValue = _.isNil(icon) ? 'dropdown' : icon
+    const iconValue = (icon == null) ? 'dropdown' : icon
 
     if (!childrenUtils.isNil(children)) {
       return (

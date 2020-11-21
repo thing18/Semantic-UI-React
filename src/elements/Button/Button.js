@@ -33,20 +33,20 @@ class Button extends Component {
   computeButtonAriaRole(ElementType) {
     const { role } = this.props
 
-    if (!_.isNil(role)) return role
+    if ((role != null)) return role
     if (ElementType !== 'button') return 'button'
   }
 
   computeElementType = () => {
     const { attached, label } = this.props
 
-    if (!_.isNil(attached) || !_.isNil(label)) return 'div'
+    if ((attached != null) || (label != null)) return 'div'
   }
 
   computeTabIndex = (ElementType) => {
     const { disabled, tabIndex } = this.props
 
-    if (!_.isNil(tabIndex)) return tabIndex
+    if ((tabIndex != null)) return tabIndex
     if (disabled) return -1
     if (ElementType === 'div') return 0
   }
@@ -68,7 +68,7 @@ class Button extends Component {
     const { labelPosition, children, content, icon } = this.props
 
     if (icon === true) return true
-    return icon && (labelPosition || (childrenUtils.isNil(children) && _.isNil(content)))
+    return icon && (labelPosition || (childrenUtils.isNil(children) && (content == null)))
   }
 
   render() {
@@ -125,7 +125,7 @@ class Button extends Component {
     const ElementType = getElementType(Button, this.props, this.computeElementType)
     const tabIndex = this.computeTabIndex(ElementType)
 
-    if (!_.isNil(label)) {
+    if ((label != null)) {
       const buttonClasses = cx('ui', baseClasses, 'button', className)
       const containerClasses = cx('ui', labeledClasses, 'button', className, wrapperClasses)
       const labelElement = Label.create(label, {

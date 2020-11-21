@@ -270,7 +270,7 @@ export default class Popup extends Component {
     ]
     debug('popper modifiers:', modifiers)
 
-    const referenceElement = createReferenceProxy(_.isNil(context) ? this.triggerRef : context)
+    const referenceElement = createReferenceProxy((context == null) ? this.triggerRef : context)
 
     const mergedPortalProps = { ...this.getPortalProps(), ...portalRestProps }
     debug('portal props:', mergedPortalProps)

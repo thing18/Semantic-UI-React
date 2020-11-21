@@ -91,7 +91,7 @@ export default class Message extends Component {
       <ElementType {...rest} className={classes}>
         {dismissIcon}
         {Icon.create(icon, { autoGenerateKey: false })}
-        {(!_.isNil(header) || !_.isNil(content) || !_.isNil(list)) && (
+        {((header != null) || (content != null) || (list != null)) && (
           <MessageContent>
             {MessageHeader.create(header, { autoGenerateKey: false })}
             {MessageList.create(list, { autoGenerateKey: false })}

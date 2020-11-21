@@ -115,13 +115,13 @@ export const disallow = (disallowedProps) => (props, propName, componentName) =>
   }
 
   // skip if prop is undefined
-  if (_.isNil(props[propName]) || props[propName] === false) {
+  if ((props[propName] == null) || props[propName] === false) {
     return
   }
 
   // find disallowed props with values
   const disallowed = disallowedProps.reduce((acc, disallowedProp) => {
-    if (!_.isNil(props[disallowedProp]) && props[disallowedProp] !== false) {
+    if ((props[disallowedProp] != null) && props[disallowedProp] !== false) {
       return [...acc, disallowedProp]
     }
     return acc
@@ -272,7 +272,7 @@ export const multipleProp = (possible) => (props, propName, componentName) => {
   const propValue = props[propName]
 
   // skip if prop is undefined
-  if (_.isNil(propValue) || propValue === false) return
+  if ((propValue == null) || propValue === false) return
 
   const values = propValue
     .replace('large screen', 'large-screen')

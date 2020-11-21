@@ -53,7 +53,7 @@ export default class Pagination extends Component {
     const items = createPaginationItems({
       activePage,
       boundaryRange,
-      hideEllipsis: _.isNil(ellipsisItem),
+      hideEllipsis: ellipsisItem == null,
       siblingRange,
       totalPages,
     })

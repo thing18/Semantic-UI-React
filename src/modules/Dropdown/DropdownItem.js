@@ -49,7 +49,7 @@ class DropdownItem extends Component {
       className,
     )
     // add default dropdown icon if item contains another menu
-    const iconName = _.isNil(icon)
+    const iconName = (icon == null)
       ? childrenUtils.someByType(children, 'DropdownMenu') && 'dropdown'
       : icon
     const rest = getUnhandledProps(DropdownItem, this.props)

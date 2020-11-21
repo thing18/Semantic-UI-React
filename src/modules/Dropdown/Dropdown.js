@@ -34,7 +34,7 @@ import getSelectedIndex from './utils/getSelectedIndex'
 
 const debug = makeDebugger('dropdown')
 
-const getKeyOrValue = (key, value) => (_.isNil(key) ? value : key)
+const getKeyOrValue = (key, value) => ((key == null) ? value : key)
 const getKeyAndValues = (options) =>
   options ? options.map((option) => _.pick(option, ['key', 'value'])) : options
 
@@ -278,7 +278,7 @@ export default class Dropdown extends Component {
 
     // prevent selecting null if there was no selected item value
     // prevent selecting duplicate items when the dropdown is closed
-    if (_.isNil(selectedValue) || !open) {
+    if ((selectedValue == null) || !open) {
       return value
     }
 
@@ -730,7 +730,7 @@ export default class Dropdown extends Component {
   computeSearchInputTabIndex = () => {
     const { disabled, tabIndex } = this.props
 
-    if (!_.isNil(tabIndex)) return tabIndex
+    if ((tabIndex != null)) return tabIndex
     return disabled ? -1 : 0
   }
 
@@ -755,7 +755,7 @@ export default class Dropdown extends Component {
     // don't set a root node tabIndex as the search input has its own tabIndex
     if (search) return undefined
     if (disabled) return -1
-    return _.isNil(tabIndex) ? 0 : tabIndex
+    return (tabIndex == null) ? 0 : tabIndex
   }
 
   handleSearchInputOverrides = (predefinedProps) => ({
@@ -769,7 +769,7 @@ export default class Dropdown extends Component {
     const { multiple } = this.props
     const { value } = this.state
 
-    return multiple ? !_.isEmpty(value) : !_.isNil(value) && value !== ''
+    return multiple ? !_.isEmpty(value) : (value != null) && value !== ''
   }
 
   // ----------------------------------------

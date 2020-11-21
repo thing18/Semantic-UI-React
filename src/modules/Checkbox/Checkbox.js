@@ -45,7 +45,7 @@ export default class Checkbox extends Component {
   computeTabIndex = () => {
     const { disabled, tabIndex } = this.props
 
-    if (!_.isNil(tabIndex)) return tabIndex
+    if ((tabIndex != null)) return tabIndex
     return disabled ? -1 : 0
   }
 
@@ -58,7 +58,7 @@ export default class Checkbox extends Component {
     const isLabelClick = _.invoke(this.labelRef.current, 'contains', e.target)
     const isRootClick = !isLabelClick && !isInputClick
 
-    const hasId = !_.isNil(id)
+    const hasId = (id != null)
     const isLabelClickAndForwardedToInput = isLabelClick && hasId
 
     // https://github.com/Semantic-Org/Semantic-UI-React/pull/3351
@@ -167,7 +167,7 @@ export default class Checkbox extends Component {
       useKeyOnly(indeterminate, 'indeterminate'),
       // auto apply fitted class to compact white space when there is no label
       // https://semantic-ui.com/modules/checkbox.html#fitted
-      useKeyOnly(_.isNil(label), 'fitted'),
+      useKeyOnly((label == null), 'fitted'),
       useKeyOnly(radio, 'radio'),
       useKeyOnly(readOnly, 'read-only'),
       useKeyOnly(slider, 'slider'),
