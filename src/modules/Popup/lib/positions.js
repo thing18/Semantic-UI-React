@@ -15,4 +15,4 @@ export const positionsMapping = {
 
 export const positions = Object.keys(positionsMapping)
 
-export const placementMapping = _.invert(positionsMapping)
+export const placementMapping = Object.entries(positionsMapping).reduce((acc, [key, val]) => { acc[val] = key; return acc; }, {});
