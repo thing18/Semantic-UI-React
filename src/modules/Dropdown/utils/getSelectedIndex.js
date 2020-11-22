@@ -47,9 +47,9 @@ export default function getSelectedIndex(config) {
     // their initial selected index should be 0.
     newSelectedIndex = multiple
       ? firstIndex
-      : _.findIndex(menuOptions, ['value', value]) || enabledIndexes[0]
+      : menuOptions.findIndex(x => x.value === value) || enabledIndexes[0]
   } else if (multiple) {
-    newSelectedIndex = _.find(enabledIndexes, (index) => index >= selectedIndex)
+    newSelectedIndex = enabledIndexes.find((index) => index >= selectedIndex)
 
     // multiple selects remove options from the menu as they are made active
     // keep the selected index within range of the remaining items
@@ -57,7 +57,7 @@ export default function getSelectedIndex(config) {
       newSelectedIndex = enabledIndexes[enabledIndexes.length - 1]
     }
   } else {
-    const activeIndex = _.findIndex(menuOptions, ['value', value])
+    const activeIndex = menuOptions.findIndex(x => x.value === value)
 
     // regular selects can only have one active item
     // set the selected index to the currently active item

@@ -589,7 +589,7 @@ export default class Dropdown extends Component {
   getItemByValue = (value) => {
     const { options } = this.props
 
-    return _.find(options, { value })
+    return options.find(x=>x.value===value)
   }
 
   getDropdownAriaOptions = () => {
