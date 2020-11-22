@@ -114,8 +114,8 @@ StepGroup.propTypes = {
 
   /** Steps can be divided evenly inside their parent. */
   widths: PropTypes.oneOf([
-    ..._.keys(numberMap),
-    ..._.keys(numberMap).map(Number),
+    ...Object.keys(numberMap),
+    ...Object.keys(numberMap).map(Number),
     ..._.values(numberMap),
   ]),
 }

@@ -13,6 +13,6 @@ export const positionsMapping = {
   'left center': 'left',
 }
 
-export const positions = _.keys(positionsMapping)
+export const positions = Object.keys(positionsMapping)
 
 export const placementMapping = _.invert(positionsMapping)

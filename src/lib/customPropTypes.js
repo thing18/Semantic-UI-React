@@ -197,7 +197,7 @@ export const givenProps = (propsShape, validator) => (props, propName, component
     )
   }
 
-  const shouldValidate = _.keys(propsShape).every((key) => {
+  const shouldValidate = Object.keys(propsShape).every((key) => {
     const val = propsShape[key]
     // require propShape validators to pass or prop values to match
     return typeof val === 'function'

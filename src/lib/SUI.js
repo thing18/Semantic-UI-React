@@ -24,8 +24,8 @@ export const VERTICAL_ALIGNMENTS = ['bottom', 'middle', 'top']
 export const VISIBILITY = ['mobile', 'tablet', 'computer', 'large screen', 'widescreen']
 
 export const WIDTHS = [
-  ..._.keys(numberToWordMap),
-  ..._.keys(numberToWordMap).map(Number),
+  ...Object.keys(numberToWordMap),
+  ...Object.keys(numberToWordMap).map(Number),
   ..._.values(numberToWordMap),
 ]
 

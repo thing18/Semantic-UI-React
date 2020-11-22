@@ -14,7 +14,7 @@ const getPendingKeys = (prev, next) => {
   const nextKeysPending = {}
   let pendingKeys = []
 
-  _.forEach(_.keys(prev), (prevKey) => {
+  _.forEach(Object.keys(prev), (prevKey) => {
     if (!_.has(next, prevKey)) {
       pendingKeys.push(prevKey)
       return
@@ -44,7 +44,7 @@ export const mergeChildMappings = (prev = {}, next = {}) => {
   const childMapping = {}
   const [nextKeysPending, pendingKeys] = getPendingKeys(prev, next)
 
-  _.forEach(_.keys(next), (nextKey) => {
+  _.forEach(Object.keys(next), (nextKey) => {
     if (_.has(nextKeysPending, nextKey)) {
       _.forEach(nextKeysPending[nextKey], (pendingKey) => {
         childMapping[pendingKey] = getValue(pendingKey, prev, next)
