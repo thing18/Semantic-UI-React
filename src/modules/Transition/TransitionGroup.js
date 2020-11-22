@@ -104,7 +104,7 @@ export default class TransitionGroup extends React.Component {
     const ElementType = getElementType(TransitionGroup, this.props)
     const rest = getUnhandledProps(TransitionGroup, this.props)
 
-    return <ElementType {...rest}>{_.values(children)}</ElementType>
+    return <ElementType {...rest}>{Object.values(children)}</ElementType>
   }
 }
 

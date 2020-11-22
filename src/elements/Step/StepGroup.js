@@ -116,7 +116,7 @@ StepGroup.propTypes = {
   widths: PropTypes.oneOf([
     ...Object.keys(numberMap),
     ...Object.keys(numberMap).map(Number),
-    ..._.values(numberMap),
+    ...Object.values(numberMap),
   ]),
 }
 

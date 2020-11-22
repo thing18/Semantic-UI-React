@@ -26,7 +26,7 @@ export const VISIBILITY = ['mobile', 'tablet', 'computer', 'large screen', 'wide
 export const WIDTHS = [
   ...Object.keys(numberToWordMap),
   ...Object.keys(numberToWordMap).map(Number),
-  ..._.values(numberToWordMap),
+  ...Object.values(numberToWordMap),
 ]
 
 export const DIRECTIONAL_TRANSITIONS = [
