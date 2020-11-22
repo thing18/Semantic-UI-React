@@ -89,13 +89,13 @@ export default class ModernAutoControlledComponent extends React.Component {
       _.each(autoControlledProps, (prop) => {
         const defaultProp = getDefaultPropName(prop)
         // regular prop
-        if (!_.has(propTypes, defaultProp)) {
+        if (!(defaultProp in propTypes)) {
           console.error(
             `${name} is missing "${defaultProp}" propTypes validation for auto controlled prop "${prop}".`,
           )
         }
         // its default prop
-        if (!_.has(propTypes, prop)) {
+        if (!(prop in propTypes)) {
           console.error(
             `${name} is missing propTypes validation for auto controlled prop "${prop}".`,
           )

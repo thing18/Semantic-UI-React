@@ -20,7 +20,7 @@ export default (source, target) =>
     source,
     (res, val, key) => {
       // deleted keys
-      if (!_.has(target, key)) res[key] = '[DELETED]'
+      if (!(key in target)) res[key] = '[DELETED]'
       // new keys / changed values
       // Note, we tolerate isEqual here as this is a dev only utility and not included in production code
       else if (!_.isEqual(val, target[key])) res[key] = target[key]

@@ -129,7 +129,7 @@ export default class Dropdown extends Component {
     if (process.env.NODE_ENV !== 'production') {
       // in development, validate value type matches dropdown type
       const isNextValueArray = Array.isArray(this.props.value)
-      const hasValue = _.has(this.props, 'value')
+      const hasValue = 'value' in this.props
 
       if (hasValue && this.props.multiple && !isNextValueArray) {
         console.error(

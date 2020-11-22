@@ -37,7 +37,7 @@ class Confirm extends Component {
     // It cannot be present (even undefined) with `defaultOpen`
     // only apply it if the user provided an open prop
     const openProp = {}
-    if (_.has(this.props, 'open')) openProp.open = open
+    if ('open' in this.props) openProp.open = open
 
     return (
       <Modal {...rest} {...openProp} size={size} onClose={this.handleCancel}>

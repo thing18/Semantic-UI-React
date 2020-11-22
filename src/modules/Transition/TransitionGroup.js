@@ -50,8 +50,8 @@ export default class TransitionGroup extends React.Component {
     const children = mergeChildMappings(prevMapping, nextMapping)
 
     _.forEach(children, (child, key) => {
-      const hasPrev = _.has(prevMapping, key)
-      const hasNext = _.has(nextMapping, key)
+      const hasPrev = key in prevMapping
+      const hasNext = key in nextMapping
 
       const { [key]: prevChild } = prevMapping
       const isLeaving = prevChild?.props.visible
